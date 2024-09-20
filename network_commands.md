@@ -1,6 +1,12 @@
 ## Common Values
 ip 192.168.10.1
 
+## Interface Config
+int g0/0/0
+ip add 100.1.1.1 255.255.255.0
+no shut
+exit
+
 ## VLAN Implementation
 vlan 50
 name Year12
@@ -69,8 +75,8 @@ no ip add
 shut
 
 ## Serial
-int s0/1/1
-ip add 10.0.0.1 255.255.255.252
+int s0/1/0
+ip add 200.165.100.105 255.255.255.252
 clock rate 2000000
 exit
 
