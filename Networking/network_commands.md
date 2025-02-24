@@ -5,7 +5,7 @@
 ### Interface Config
 
 int g0/0/0
-ip add 100.1.1.1 255.255.255.0
+ip add 192.168.50.1 255.255.255.0
 description Interface
 no shut
 exit
@@ -13,7 +13,7 @@ exit
 ### Serial Config
 
 int s0/0/0
-ip address 100.1.1.1 255.255.255.252
+ip address 192.168.50.1 255.255.255.252
 description Interface
 clock rate 2000000
 no shut
