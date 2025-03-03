@@ -81,6 +81,11 @@ log-adjacency-changes
 network 0.0.0.0 255.255.255.255 area 0
 default-information originate
 
+### Routing Tables
+
+ip route <remote lan address> <subnet mask> <remote wan address>
+ip route 192.168.50.0 255.255.255.252 200.20.10.2
+
 ## Scripts
 
 ### Router Setup
