@@ -5,7 +5,7 @@
 ### Interface Config
 
 int g0/0/0
-ip add 192.168.50.1 255.255.255.0
+ip add 192.168.10.1 255.255.255.0
 description Interface
 no shut
 exit
@@ -13,9 +13,9 @@ exit
 ### Serial Config
 
 int s0/0/0
-ip address 192.168.50.1 255.255.255.252
+ip address 192.168.3.1 255.255.255.0
 description Interface
-clock rate 2000000
+clock rate 64000
 no shut
 exit
 
@@ -83,8 +83,9 @@ default-information originate
 
 ### Routing Tables
 
-ip route <remote lan address> <subnet mask> <remote wan address>
+! ip route <remote lan address> <subnet mask> <remote wan address>
 ip route 192.168.50.0 255.255.255.252 200.20.10.2
+
 
 ## Scripts
 
@@ -92,7 +93,7 @@ ip route 192.168.50.0 255.255.255.252 200.20.10.2
 
 en
 conf t
-hostname Router
+hostname Sydney
 service password-encryption
 enable password cisco
 banner motd $ Unauthorised Access Strictly Prohibited $
@@ -104,3 +105,27 @@ logging synchronous
 end
 copy run start
 conf t
+
+### Switch Setup
+
+en
+conf t
+hostname Sydney
+service password-encryption
+enable password cisco
+banner motd $ Unauthorised Access Strictly Prohibited $
+no ip domain-lookup
+line vty 0 4
+password cisco
+login
+logging synchronous
+end
+copy run start
+conf t
+
+### Erase Config
+
+delete vlan.dat
+erase startup-config
+confirm
+reload
