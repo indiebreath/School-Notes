@@ -29,6 +29,8 @@ exit
 
 int range f0/1-2
 switchport mode trunk
+switchport trunk native vlan xx
+switchport trunk allowed vlan xx,xx,xx
 ! if multilayer switch V
 switchport trunk encapsulation dot1q
 
